@@ -1,0 +1,19 @@
+﻿<div class="d-flex justify-content-center mb-4">
+    <div class="stepper d-flex">
+        @{
+            var steps = new[] {
+        "Identity Verification", "Product Selection", "Personal Information",
+        "Contact Info", "FATCA Info", "Nominee Info", "Customer Signature", "Preview"
+        };
+            var currentStep = ViewData["Step"]?.ToString();
+        }
+
+        @for (int i = 0; i < steps.Length; i++)
+        {
+            var active = steps[i] == currentStep ? "bg-warning text-white fw-bold" : "bg-light";
+            <div class="step text-center p-2 mx-1 rounded @active">
+                @steps[i]
+            </div>
+        }
+    </div>
+</div>

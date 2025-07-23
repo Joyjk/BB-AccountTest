@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Side Content -->
+        <div class="col-md-4">
+            <img src="~/images/bracbank-logo.png" alt="BRAC Bank" class="mb-3" style="width: 150px;" />
+            <h4 class="text-primary fw-bold">এখন মুহূর্তেই অ্যাকাউন্ট খুলুন</h4>
+            <h4 class="fw-bold text-warning">ব্র্যাক ব্যাংকে, ডিজিটালি!</h4>
+            <p class="mt-4">শুধুমাত্র পার্সোনাল (Retail) ও একক মালিকানাধীন ব্যবসায় (SME) অ্যাকাউন্ট</p>
+        </div>
+
+        <!-- Right Side Content -->
+        <div class="col-md-8">
+            <h5 class="fw-bold text-primary">ব্র্যাক ব্যাংকে অ্যাকাউন্ট খুলুন একদম সহজেই</h5>
+            <ul class="list-unstyled mt-3">
+                <li>✓ মুহূর্তেই ব্যাংক অ্যাকাউন্ট খোলা</li>
+                <li>✓ ঘরে বসেই আবেদন করুন</li>
+                <li>✓ ভিডিও কলের মাধ্যমে পরিচয় নিশ্চিতকরণ</li>
+                <li>✓ অ্যাকাউন্ট খোলার জন্য কোথাও যেতে হবে না</li>
+                <li>✓ জাতীয় পরিচয়পত্র ও ছবি থাকলেই যথেষ্ট</li>
+            </ul>
+
+            <h5 class="mt-4 fw-bold text-primary">অ্যাকাউন্ট খুলতে সাথে রাখুন:</h5>
+            <div class="row">
+                <!-- বাঙ্কিং অ্যাকাউন্ট -->
+                <div class="col-md-6">
+                    <h6 class="fw-bold">পার্সোনাল অ্যাকাউন্ট:</h6>
+                    <ul>
+                        <li>জাতীয় পরিচয়পত্রের উভয় পাশ</li>
+                        <li>নিজের ছবি</li>
+                        <li>আঙুলের ছাপ (অপশনাল)</li>
+                        <li>ভিডিও কলের মাধ্যমে পরিচয় যাচাই</li>
+                        <li>ব্যাংকিং প্রয়োজন অনুযায়ী তথ্য</li>
+                    </ul>
+                </div>
+
+                <!-- SME অ্যাকাউন্ট -->
+                <div class="col-md-6 bg-light p-3 rounded">
+                    <h6 class="fw-bold">একক মালিকানাধীন ব্যবসায় অ্যাকাউন্ট:</h6>
+                    <ul>
+                        <li>জাতীয় পরিচয়পত্রের উভয় পাশ</li>
+                        <li>নিজের ছবি</li>
+                        <li>ব্যবসার নাম, ধরন, ঠিকানা, ফোন নম্বর</li>
+                        <li>ট্রেড লাইসেন্স / ইউবিআইএন নম্বর (যদি থাকে)</li>
+                        <li>ব্যাংকিং প্রয়োজন অনুযায়ী তথ্য</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="mt-4 fw-bold text-primary">শুধুমাত্র বাংলাদেশী নাগরিক হলে অনলাইনে অ্যাকাউন্ট খোলা যাবে</p>
+
+            <div class="form-check mt-3">
+                <input class="form-check-input" type="radio" name="accountType" id="retail" checked>
+                <label class="form-check-label" for="retail">পার্সোনাল (Retail)</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="accountType" id="sme">
+                <label class="form-check-label" for="sme">ব্যবসায়িক (SME)</label>
+            </div>
+
+            <a href="#" class="btn btn-warning text-white mt-3 px-4 fw-bold">আবেদন শুরু করুন</a>
+        </div>
+    </div>
+</div>

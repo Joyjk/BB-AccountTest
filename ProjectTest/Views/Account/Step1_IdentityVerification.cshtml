@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Identity Verification";
+    ViewData["Step"] = "Identity Verification";
+}
+
+@await Html.PartialAsync("_StepperPartial")
+
+<div class="container bg-blue p-4 rounded shadow" style="background-color:blue!important">
+    <h4 class="text-center mb-4">Capture/Upload Image of Original NID or Smart Card</h4>
+
+    <form id="identityForm" asp-action="Step1_IdentityVerification" method="post" enctype="multipart/form-data">
+        <div class="row text-center">
+            <!-- Front Side -->
+            <div class="col-md-6 mb-3">
+                <label class="fw-bold">NID Front Side</label><br />
+                <input type="file" name="nidFront" class="form-control mb-2" accept="image/*" id="nidFrontInput" />
+                <video id="frontCamera" width="100%" height="200" autoplay playsinline style="display:none;"></video>
+                <canvas id="frontCanvas" style="display:none;"></canvas>
+                <input type="hidden" id="frontCapture" name="frontCapture" />
+                <button type="button" class="btn btn-warning" onclick="startCamera('front')">📷 Capture</button>
+            </div>
+
+            <!-- Back Side -->
+            <div class="col-md-6 mb-3">
+                <label class="fw-bold">NID Back Side</label><br />
+                <input type="file" name="nidBack" class="form-control mb-2" accept="image/*" id="nidBackInput" />
+                <video id="backCamera" width="100%" height="200" autoplay playsinline style="display:none;"></video>
+                <canvas id="backCanvas" style="display:none;"></canvas>
+                <input type="hidden" id="backCapture" name="backCapture" />
+                <button type="button" class="btn btn-warning" onclick="startCamera('back')">📷 Capture</button>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary px-5">UPLOAD</button>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    <script>
+        let currentStream = null;
+
+        function startCamera(side) {
+            const video = document.getElementById(`${side}Camera`);
+            const canvas = document.getElementById(`${side}Canvas`);
+
+            if (currentStream) {
+                currentStream.getTracks().forEach(track => track.stop());
+            }
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    currentStream = stream;
+                    video.srcObject = stream;
+                    video.style.display = 'block';
+
+                    setTimeout(() => {
+                        captureImage(video, canvas, side);
+                        video.style.display = 'none';
+                        stream.getTracks().forEach(track => track.stop());
+                    }, 3000); // Auto capture after 3 seconds
+                })
+                .catch(error => {
+                    alert("Camera not available or permission denied.");
+                    console.error(error);
+                });
+        }
+
+        function captureImage(video, canvas, side) {
+            const context = canvas.getContext('2d');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            context.drawImage(video, 0, 0);
+
+            canvas.toBlob(blob => {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+
+                const dt = new DataTransfer();
+                const file = new File([blob], `${side}Capture.jpg`, { type: 'image/jpeg' });
+                dt.items.add(file);
+
+                if (side === 'front') {
+                    document.getElementById('nidFrontInput').files = dt.files;
+                } else {
+                    document.getElementById('nidBackInput').files = dt.files;
+                }
+            }, 'image/jpeg');
+        }
+    </script>
+
+
+}
