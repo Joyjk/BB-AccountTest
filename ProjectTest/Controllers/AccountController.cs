@@ -6,7 +6,7 @@ namespace ProjectTest.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Step1_IdentityVerification");
         }
         public IActionResult Step1_IdentityVerification()
         {
