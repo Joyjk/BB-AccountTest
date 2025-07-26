@@ -1,0 +1,220 @@
+﻿@{
+    ViewData["Title"] = "eKYC - BRAC Bank PLC.";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>@ViewData["Title"]</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image" href="https://testekyc.bracbank.com/assets/images/onboarding/BBL.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Add your custom styles here */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: white;
+            background-image: url('/images/Background.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top:20px;
+        }
+
+        .logoResponsive {
+            width: 13rem;
+            margin: 20px 0 20px 20px;
+        }
+
+        .horizontal {
+            width: 90%;
+            height: 2px;
+            background: linear-gradient(to right, transparent 0%, #00A2ff 50%, transparent 100%);
+        }
+
+        .vertical-line {
+            width: 2px;
+            height: 90%;
+            background: linear-gradient(to bottom, transparent 0%, #00A2ff 50%, transparent 100%);
+        }
+
+        .list-item ul li {
+            color: #17479d;
+            list-style-type: square;
+        }
+
+        .untitledList li::before {
+            content: none;
+        }
+
+        /* Add more styles as needed */
+    </style>
+    <link rel="stylesheet" href="/css/ekycCssFile.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="#" class="logo" style="border-left: 0;">
+                <img src="/images/BrandLogo.png" class="logoResponsive">
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="container d-flex justify-content-center">
+        <div class="row justify-content-center" style="max-width: 1200px;">
+            <!-- Added max-width to prevent too wide layout -->
+            <div class="col-lg-4 p-4">
+                <h1>
+                    <span style="color: #17479d;"> এখন </span>
+                    <span style="color: #f7941d;">মুহূর্তেই <br> অ্যাকাউন্ট খুলুন</span><br>
+                    <span style="color: #17479d;"> ব্র্যাক ব্যাংকে, </span><br>
+                    <span style="color: #f7941d;">ডিজিটালি!</span>
+                </h1>
+                <h5 class="sub-title" style="color: #17479d;">
+                    শুধুমাত্র পার্সোনাল (Retail) ও <br>
+                    একক মালিকানা ব্যবসায় <br>
+                    (SME) অ্যাকাউন্ট
+                </h5>
+                <h5 class="sub-title-mobile" style="color: #17479d;">
+                    শুধুমাত্র পার্সোনাল (Retail) ও একক <br>
+                    মালিকানা ব্যবসায় (SME) অ্যাকাউন্ট
+                </h5>
+                <div class="horizontal"></div>
+
+                <section class="show-desktop list-list">
+                    <h4 style="color: #f7941d;">ব্র্যাক ব্যাংকে অ্যাকাউন্ট খুলুন একদম সহজেই</h4>
+                    <ul class="untitledList">
+                        <li>মুহূর্তেই নতুন ব্যাংক অ্যাকাউন্ট</li>
+                        <li>ব্রাঞ্চে না গিয়ে বাঁচান আপনার মুল্যবান সময়</li>
+                        <li>যেকোনো সময় যেকোনো জায়গা থেকে আবেদন করুন</li>
+                        <li>নেই কাগজের ফর্ম পূরণের ঝামেলা</li>
+                        <li>কাগজের ব্যবহার কমিয়ে পরিবেশ সংরক্ষণে অংশ নিন</li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="col-lg-1 d-flex justify-content-center">
+                <div class="vertical-line"></div>
+            </div>
+
+            <div class="col-lg-7 list-item">
+                <section class="show-iPad list-list">
+                    <h4 style="color: #f7941d;">ব্র্যাক ব্যাংকে অ্যাকাউন্ট খুলুন একদম সহজেই</h4>
+                    <ul>
+                        <li>মুহূর্তেই নতুন ব্যাংক অ্যাকাউন্ট</li>
+                        <li>ব্রাঞ্চে না গিয়ে বাঁচান আপনার মুল্যবান সময়</li>
+                        <li>যেকোনো সময় যেকোনো জায়গা থেকে আবেদন করুন</li>
+                        <li>নেই কাগজের ফর্ম পূরণের ঝামেলা</li>
+                        <li>কাগজের ব্যবহার কমিয়ে পরিবেশ সংরক্ষণে অংশ নিন</li>
+                    </ul>
+                </section>
+
+                <div>
+                    <h4 style="color: #f7941d;">অ্যাকাউন্ট খুলতে সাথে রাখুন:</h4>
+
+                    <!-- Table content here -->
+                    <!-- Combined table for larger screens -->
+                    <table class="style show-table" style="border: 2px solid #17479d; border-radius: 25px;">
+                        <tr style="background-color: #17479d; color: white; padding: 1rem; text-align: center; height: 2rem;">
+                            <th>পারসোনাল অ্যাকাউন্ট</th>
+                            <th>একক মালিকানা ব্যবসায় অ্যাকাউন্ট</th>
+                        </tr>
+                        <tr class="list-item">
+                            <td>
+                                <ul>
+                                    <li>আপনার জাতীয় পরিচয় পত্র</li>
+                                    <li>নমিনির জাতীয় পরিচয় পত্রের কপি / পাসপোর্ট / জন্ম সনদ</li>
+                                    <li>অর্থের উৎসের প্রমান</li>
+                                    <li>ওয়ার্ক পারমিট / রেসিডেন্ট পারমিট / ভিসা (শুধুমাত্র প্রবাসী গ্রাহকদের জন্য প্রযোজ্য)</li>
+                                    <li>
+                                        আর যে সকল ডকুমেন্ট প্রয়োজন হতে পারে-
+                                        <ul>
+                                            <li>পাসপোর্ট / ড্রাইভিং লাইসেন্স</li>
+                                            <li>ই-টিন, ইউটিলিটি বিল, ট্রেড লাইসেন্স ইত্যাদি।</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td style="border-left: 2px solid #17479d;">
+                                <ul>
+                                    <li>আপনার জাতীয় পরিচয় পত্র</li>
+                                    <li>নমিনির জাতীয় পরিচয় পত্র / পাসপোর্ট/ জন্ম সনদ</li>
+                                    <li>ট্রেড লাইসেন্স</li>
+                                    <li>
+                                        আর যে সকল ডকুমেন্ট প্রয়োজন হতে পারে-
+                                        <ul>
+                                            <li>ব্যবসায়ের ধরন অনুযায়ী অন্যান্য লাইসেন্স / সনদ</li>
+                                            <li>ই-টিন, ইউটিলিটি বিল, বিআইএন ইত্যাদি।</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+
+                   
+                    <div class="list-item mt-2">
+                        <h3 style="color: #17479d;">শুধুমাত্র বাংলাদেশী নাগরিক হলে <br> অনলাইনে অ্যাকাউন্ট খোলা যাবে</h3>
+                        <h6 style="color: #17479d;">আবেদনকারীর অবস্থান:</h6>
+                        <ul>
+                            <li>বাংলাদেশে অবস্থানকারী ব্যক্তি ও ব্যবসায়</li>
+                            <li>প্রবাসী বাংলাদেশী ব্যক্তি</li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xl-3">
+                            <p style="color: #17479d;">অ্যাকাউন্টের ধরন:</p>
+                        </div>
+                        <div class="col-xl-5" style="color: #17479d;">
+                            <form asp-controller="Account" asp-action="SubmitApplication" method="post">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="accountType" id="personalAccount" value="General" checked>
+                                    <label class="form-check-label" for="personalAccount" style="color: #17479d; font-weight: 500;">
+                                        পার্সোনাল (Retail)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="accountType" id="smeAccount" value="SME">
+                                    <label class="form-check-label" for="smeAccount" style="color: #17479d; font-weight: 500;">
+                                        একক মালিকানা ব্যবসায় (SME) অ্যাকাউন্ট
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="accountType" id="probashiAccount" value="Probashi">
+                                    <label class="form-check-label" for="probashiAccount" style="color: #17479d; font-weight: 500;">
+                                        প্রবাসী (Probashi) অ‍্যাকাউন্ট
+                                    </label>
+                                </div>
+
+                                <div class="row mt-2 mb-4">
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-warning" style="width: 135px;">আবেদন করুন</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+   
+    <div class="col-md-2" style="position: absolute; bottom: 4px; right: 6px; display: flex; align-items: end; justify-content: flex-end;">
+        <p style="color: #17479d; font-size: 10px;">*শর্ত প্রযোজ্য</p>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjectTest.Models;
+using System.Diagnostics;
 
 namespace ProjectTest.Controllers
 {
@@ -6,7 +8,31 @@ namespace ProjectTest.Controllers
     {
         public IActionResult Index()
         {
-            return RedirectToAction("Step1_IdentityVerification");
+            return View();
+        }
+
+        public IActionResult EkycFirstPage()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SubmitApplication(string accountType)
+        {
+            // Process the account application based on the selected accountType
+            // You can add your business logic here
+
+            // For demonstration, we'll just redirect to a confirmation page
+            return RedirectToAction("ApplicationSubmitted", new { type = accountType });
+        }
+        public IActionResult ApplicationSubmitted(string type)
+        {
+            ViewBag.AccountType = type;
+            return View();
+        }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         public IActionResult Step1_IdentityVerification()
         {
@@ -47,5 +73,11 @@ namespace ProjectTest.Controllers
         {
             return View();
         }
+    }
+    public class ErrorViewModel
+    {
+        public string? RequestId { get; set; }
+
+        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
