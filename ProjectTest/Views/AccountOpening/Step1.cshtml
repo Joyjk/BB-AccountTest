@@ -1,0 +1,191 @@
+﻿@model AccountOpeningModel
+
+@{
+    ViewData["Title"] = "OTP Verification";
+}
+
+<partial name="_Timeline" model="Model" />
+
+<div class="card">
+    <div class="card-header">
+        <h3>🔐 OTP Verification</h3>
+    </div>
+    <div class="card-body">
+
+
+        <div id="step1" class="form-section active">
+            <h2 class="section-title">📱 Mobile Verification</h2>
+            <div class="message-box info">
+                <strong>Secure Start:</strong> We'll send a secure OTP to verify your mobile number. This ensures your account safety from the very beginning.
+            </div>
+
+            <div class="security-features">
+                <div class="security-item active">
+                    <div style="font-size: 2rem;">🔐</div>
+                    <h4>256-bit Encryption</h4>
+                </div>
+                <div class="security-item active">
+                    <div style="font-size: 2rem;">🛡️</div>
+                    <h4>Fraud Detection</h4>
+                </div>
+                <div class="security-item active">
+                    <div style="font-size: 2rem;">⚡</div>
+                    <h4>Instant Verification</h4>
+                </div>
+            </div>
+
+            <div class="form-group" style="max-width: 500px; margin: 0 auto;">
+                <label for="mobile">📞 Mobile Number</label>
+                <input type="tel" id="mobile" placeholder="+880 1XXXXXXXXX" required maxlength="14">
+            </div>
+            <div class="navigation" style="justify-content: center;">
+                <button class="btn btn-primary" onclick="sendOTP()">
+                    <span>📨</span> Send Secure OTP
+                </button>
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <form asp-action="NextStep" method="post">
+            <input type="hidden" asp-for="CurrentStep" value="1" />
+
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Next</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .card {
+        max-width: 600px;
+        margin: 20px auto;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border: none;
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+        border-radius: 12px 12px 0 0 !important;
+    }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .message-box {
+        background-color: #f8f9fa;
+        border-left: 4px solid #4a90e2;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        color: #555;
+    }
+
+    .security-features {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+        gap: 15px;
+    }
+
+    .security-item {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .security-item h4 {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+            .form-group input:focus {
+                border-color: #4a90e2;
+                outline: none;
+            }
+
+    .btn {
+        padding: 12px 25px;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .btn-primary {
+        background-color: #4a90e2;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #3a7bc8;
+        }
+
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    /* Responsive adjustments */
+  
+
+    .security-item {
+        margin-bottom: 15px;
+    }
+
+    
+</style>
+
+
+
+
+
+
+
+

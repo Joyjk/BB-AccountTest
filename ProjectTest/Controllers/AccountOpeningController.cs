@@ -1,47 +1,51 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectTest.Models;
-using System.Diagnostics;
 
 namespace ProjectTest.Controllers
 {
-    public class AccountController : Controller
+    public class AccountOpeningController : Controller
     {
+        private const int TotalSteps = 7;
+
         public IActionResult Index()
         {
-            return View();
+            var model = new AccountOpeningModel();
+            return View("Step1", model); // This will look for Views/AccountOpening/Step1.cshtml
         }
 
-        public IActionResult EkycFirstPage()
-        {
-            return View();
-        }
         [HttpPost]
-        public IActionResult SubmitApplication(string accountType)
+        public IActionResult NextStep(AccountOpeningModel model, int currentStep)
         {
-            if (accountType == "Personal")
+            //if (!ModelState.IsValid)
+            //{
+            //    return View($"Step{currentStep}", model);
+            //}
+
+            model.CurrentStep = currentStep < TotalSteps ? currentStep + 1 : currentStep;
+            return View($"Step{model.CurrentStep}", model);
+        }
+
+        [HttpPost]
+        public IActionResult PreviousStep(AccountOpeningModel model, int currentStep)
+        {
+            model.CurrentStep = currentStep > 1 ? currentStep - 1 : currentStep;
+            return View($"Step{model.CurrentStep}", model);
+        }
+
+        [HttpPost]
+        public IActionResult Submit(AccountOpeningModel model)
+        {
+            if (!ModelState.IsValid)
             {
-                //Perorsonal account submission logic
-                return RedirectToAction("Index", "AccountOpening");
+                return View($"Step{TotalSteps}", model);
             }
-            else
-            {
-                return RedirectToAction("EkycFirstPage", "Account");
-            }
+
+            // Process the complete application
+            // Save to database, etc.
+
+            return View("Confirmation");
         }
-        public IActionResult ApplicationSubmitted(string type)
-        {
-            ViewBag.AccountType = type;
-            return View();
-        }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public IActionResult Step1_IdentityVerification()
-        {
-            return View();
-        }
+
 
         [HttpPost]
         public async Task<IActionResult> Step1_IdentityVerification(IFormFile nidFront, IFormFile nidBack)
@@ -70,18 +74,5 @@ namespace ProjectTest.Controllers
 
             return RedirectToAction("Step2_ProductSelection");
         }
-
-
-
-        public IActionResult Step2_ProductSelection()
-        {
-            return View();
-        }
-    }
-    public class ErrorViewModel
-    {
-        public string? RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
 }
